@@ -1,6 +1,6 @@
-package java_quiz.cwcor.exam;
+package java_quiz.cwcor.services;
 
-import java_quiz.cwcor.question.Question;
+import java_quiz.cwcor.models.Question;
 
 import java.util.Collection;
 

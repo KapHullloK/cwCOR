@@ -1,7 +1,8 @@
 package java_quiz.cwcor.exam;
 
-import java_quiz.cwcor.question.Question;
-import java_quiz.cwcor.question.QuestionService;
+import java_quiz.cwcor.models.Question;
+import java_quiz.cwcor.services.QuestionService;
+import java_quiz.cwcor.services.ExaminerServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,6 +31,7 @@ public class ExaminerServiceImplTest {
         q2 = new Question("gfsa", "63");
         examinerServiceImpl = new ExaminerServiceImpl(questionService);
         Mockito.when(questionService.getAll()).thenReturn(List.of(q1, q2));
+        Mockito.when(questionService.getRandomQuestion()).thenReturn(q1).thenReturn(q2);
     }
 
     @Test

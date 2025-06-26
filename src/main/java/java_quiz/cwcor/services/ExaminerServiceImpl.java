@@ -1,15 +1,11 @@
-package java_quiz.cwcor.exam;
+package java_quiz.cwcor.services;
 
-import java_quiz.cwcor.question.Question;
-import java_quiz.cwcor.question.QuestionService;
+import java_quiz.cwcor.models.Question;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 @Service
@@ -23,11 +19,15 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        List<Question> allQuestions = new ArrayList<>(questionService.getAll());
-        if (Math.abs(amount) > allQuestions.size()) {
+        if (Math.abs(amount) > questionService.getAll().size()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Запрошено больше вопросов, чем доступно");
         }
-        Collections.shuffle(allQuestions);
-        return allQuestions.subList(0, amount);
+
+        Set<Question> responseQ = new HashSet<>();
+        while (responseQ.size() < amount) {
+            responseQ.add(questionService.getRandomQuestion());
+        }
+
+        return responseQ;
     }
 }

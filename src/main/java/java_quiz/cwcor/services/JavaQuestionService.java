@@ -1,7 +1,6 @@
-package java_quiz.cwcor.java_topic;
+package java_quiz.cwcor.services;
 
-import java_quiz.cwcor.question.Question;
-import java_quiz.cwcor.question.QuestionService;
+import java_quiz.cwcor.models.Question;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -46,6 +45,7 @@ public class JavaQuestionService implements QuestionService {
         return questions;
     }
 
+    @Override
     public Question getRandomQuestion() {
         if (questions.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "список вопросов пуст");

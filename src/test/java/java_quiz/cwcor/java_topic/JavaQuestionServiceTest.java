@@ -1,6 +1,7 @@
 package java_quiz.cwcor.java_topic;
 
-import java_quiz.cwcor.question.Question;
+import java_quiz.cwcor.models.Question;
+import java_quiz.cwcor.services.JavaQuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

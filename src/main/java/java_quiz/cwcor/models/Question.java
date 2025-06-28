@@ -1,4 +1,4 @@
-package java_quiz.cwcor.question;
+package java_quiz.cwcor.models;
 
 import java.util.Objects;
 

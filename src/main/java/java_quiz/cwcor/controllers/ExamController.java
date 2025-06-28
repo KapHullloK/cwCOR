@@ -1,6 +1,7 @@
-package java_quiz.cwcor.exam;
+package java_quiz.cwcor.controllers;
 
-import java_quiz.cwcor.question.Question;
+import java_quiz.cwcor.services.ExaminerService;
+import java_quiz.cwcor.models.Question;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
